@@ -18,6 +18,21 @@ export class MasterService {
       `${this.apiUrl}/searchBus?fromLocation=${from}&toLocation=${to}&travelDate=${travelDate}`
     );
   }
+
+  getScheduleById(id: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/GetBusScheduleById?id=${id}`);
+  }
+
+  getBookedSeats(scheduleId: number): Observable<any> {
+    return this.http.get(
+      `${this.apiUrl}/getBookedSeats?shceduleId=${scheduleId}`
+    );
+  }
+
+  booking(data: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/PostBusBooking`, data);
+  }
+
   register(user: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/AddNewUser`, user);
   }
