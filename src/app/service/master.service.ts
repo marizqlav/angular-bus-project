@@ -48,4 +48,12 @@ export class MasterService {
   // getUser(userName: string): Observable<any> {
   //   return this.http.get(`${this.apiUrl}/getUserData?userName=${userName}`);
   // }
+
+  registerVendor(data: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/CreateVendor`, data);
+  }
+
+  createSchedule(data: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/PostBusSchedule`, data);
+  }
 }
